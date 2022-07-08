@@ -17,7 +17,6 @@
 
 /* Private typedef --------------------------------------*/
 /* Private define ---------------------------------------*/
-#define TEST_FLASH_ADDR                0x5dc000
 /* Private macro ----------------------------------------*/
 /* Private function -------------------------------------*/
 void Drv_Spi_Wait_Bus_Idle(void );

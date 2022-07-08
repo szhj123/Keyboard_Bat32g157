@@ -15,6 +15,7 @@
 /* Private define ---------------------------------------*/
 /* Private macro ----------------------------------------*/
 /* Private function -------------------------------------*/
+void Drv_Lcd_Read_Id(void );
 /* Private variables ------------------------------------*/
 
 void Drv_Lcd_Init(void )
@@ -22,79 +23,91 @@ void Drv_Lcd_Init(void )
     Hal_Lcd_Init();
 
     LCD_RST_HIGH();
-    Drv_Lcd_Delay_US(1000*48);
+    Drv_Lcd_Delay_US(1000*35);
 	LCD_RST_LOW();
-	Drv_Lcd_Delay_US(10000*48);
+	Drv_Lcd_Delay_US(10000*35);
 	LCD_RST_HIGH();
-	Drv_Lcd_Delay_US(120000*48);
+	Drv_Lcd_Delay_US(120000*35);
 
     Drv_Lcd_Wr_Cmd(0x11);  
-    Drv_Lcd_Delay_US(120000*48);
+    Drv_Lcd_Delay_US(120000*35);
     
-    Drv_Lcd_Wr_Cmd(0x36);  
-	Drv_Lcd_Wr_Data(0x00); 
-    Drv_Lcd_Wr_Cmd(0x3a);  
-	Drv_Lcd_Wr_Data(0x06); 
-    
-    Drv_Lcd_Wr_Cmd(0xb2);  
-	Drv_Lcd_Wr_Data(0x0c); 
-	Drv_Lcd_Wr_Data(0x0c); 
+    Drv_Lcd_Wr_Cmd(0x36);//	
+	//Drv_Lcd_Wr_Data(0x20);
+	Drv_Lcd_Wr_Data(0x00);
+
+	Drv_Lcd_Wr_Cmd(0x3A);			
+	Drv_Lcd_Wr_Data(0x05);
+
+	Drv_Lcd_Wr_Cmd(0xB2);			
+	Drv_Lcd_Wr_Data(0x0C);
+	Drv_Lcd_Wr_Data(0x0C); 
 	Drv_Lcd_Wr_Data(0x00); 
 	Drv_Lcd_Wr_Data(0x33); 
-	Drv_Lcd_Wr_Data(0x33); 
-    Drv_Lcd_Wr_Cmd(0xb7);  
-	Drv_Lcd_Wr_Data(0x35); 
+	Drv_Lcd_Wr_Data(0x33); 			
 
-    Drv_Lcd_Wr_Cmd(0xbb);  
-	Drv_Lcd_Wr_Data(0x35); 
-    Drv_Lcd_Wr_Cmd(0xc0);  
-	Drv_Lcd_Wr_Data(0x2c); 
-    Drv_Lcd_Wr_Cmd(0xc2);  
-	Drv_Lcd_Wr_Data(0x01); 
-    Drv_Lcd_Wr_Cmd(0xc3);  
-	Drv_Lcd_Wr_Data(0x0b); 
-    Drv_Lcd_Wr_Cmd(0xc4);  
-	Drv_Lcd_Wr_Data(0x20); 
-    Drv_Lcd_Wr_Cmd(0xc6);  
-	Drv_Lcd_Wr_Data(0x0f); 
-    Drv_Lcd_Wr_Cmd(0xd0);  
-	Drv_Lcd_Wr_Data(0xa4); 
-	Drv_Lcd_Wr_Data(0xa1); 
-    
-    Drv_Lcd_Wr_Cmd(0xe0); 
-    Drv_Lcd_Wr_Data(0xd0); 
-    Drv_Lcd_Wr_Data(0x00); 
-    Drv_Lcd_Wr_Data(0x02); 
-    Drv_Lcd_Wr_Data(0x07); 
-    Drv_Lcd_Wr_Data(0x0b); 
-    Drv_Lcd_Wr_Data(0x1a); 
-    Drv_Lcd_Wr_Data(0x31); 
-    Drv_Lcd_Wr_Data(0x54); 
-    Drv_Lcd_Wr_Data(0x40); 
-    Drv_Lcd_Wr_Data(0x29); 
-    Drv_Lcd_Wr_Data(0x12); 
-    Drv_Lcd_Wr_Data(0x12); 
-    Drv_Lcd_Wr_Data(0x12); 
-    Drv_Lcd_Wr_Data(0x17); 
-    Drv_Lcd_Wr_Cmd(0xe1); 
-    Drv_Lcd_Wr_Data(0xd0); 
-    Drv_Lcd_Wr_Data(0x00); 
-    Drv_Lcd_Wr_Data(0x02); 
-    Drv_Lcd_Wr_Data(0x07); 
-    Drv_Lcd_Wr_Data(0x05); 
-    Drv_Lcd_Wr_Data(0x25); 
-    Drv_Lcd_Wr_Data(0x2d); 
-    Drv_Lcd_Wr_Data(0x44); 
-    Drv_Lcd_Wr_Data(0x45); 
-    Drv_Lcd_Wr_Data(0x1c); 
-    Drv_Lcd_Wr_Data(0x18); 
-    Drv_Lcd_Wr_Data(0x16); 
-    Drv_Lcd_Wr_Data(0x1c); 
-    Drv_Lcd_Wr_Data(0x1d); 
-    Drv_Lcd_Wr_Cmd(0x29); 
+	Drv_Lcd_Wr_Cmd(0xB7);			
+	Drv_Lcd_Wr_Data(0x35);
 
-    BACKLIGHT_ON();
-}
+	Drv_Lcd_Wr_Cmd(0xBB);			
+	Drv_Lcd_Wr_Data(0x29); //32 Vcom=1.35V
+															
+	Drv_Lcd_Wr_Cmd(0xC2);			
+	Drv_Lcd_Wr_Data(0x01);
+
+	Drv_Lcd_Wr_Cmd(0xC3);			
+	Drv_Lcd_Wr_Data(0x19); //GVDD=4.8V 
+															
+	Drv_Lcd_Wr_Cmd(0xC4);  
+	Drv_Lcd_Wr_Data(0x18); //VDV, 0x20:0v
+
+	Drv_Lcd_Wr_Cmd(0xC5);
+	Drv_Lcd_Wr_Data(0x1f);
+
+	Drv_Lcd_Wr_Cmd(0xC6);			
+	Drv_Lcd_Wr_Data(0x01); //0x0F:60Hz   0x03:99Hz       	
+
+	Drv_Lcd_Wr_Cmd(0xD0);			
+	Drv_Lcd_Wr_Data(0xA4);
+	Drv_Lcd_Wr_Data(0xA1);	
+		
+	Drv_Lcd_Wr_Cmd(0xE0);     
+	Drv_Lcd_Wr_Data(0xD0);   
+	Drv_Lcd_Wr_Data(0x08);   
+	Drv_Lcd_Wr_Data(0x0E);   
+	Drv_Lcd_Wr_Data(0x09);   
+	Drv_Lcd_Wr_Data(0x09);   
+	Drv_Lcd_Wr_Data(0x05);   
+	Drv_Lcd_Wr_Data(0x31);   
+	Drv_Lcd_Wr_Data(0x33);   
+	Drv_Lcd_Wr_Data(0x48);    
+	Drv_Lcd_Wr_Data(0x17);   
+	Drv_Lcd_Wr_Data(0x14);   
+	Drv_Lcd_Wr_Data(0x15);   
+	Drv_Lcd_Wr_Data(0x31);   
+	Drv_Lcd_Wr_Data(0x34);   
+
+	Drv_Lcd_Wr_Cmd(0xE1);     
+	Drv_Lcd_Wr_Data(0xD0);   
+	Drv_Lcd_Wr_Data(0x08);   
+	Drv_Lcd_Wr_Data(0x0E);   
+	Drv_Lcd_Wr_Data(0x09);   
+	Drv_Lcd_Wr_Data(0x09);   
+	Drv_Lcd_Wr_Data(0x15);   
+	Drv_Lcd_Wr_Data(0x31);   
+	Drv_Lcd_Wr_Data(0x33);   
+
+	Drv_Lcd_Wr_Data(0x48);   
+	Drv_Lcd_Wr_Data(0x17);   
+	Drv_Lcd_Wr_Data(0x14);   
+	Drv_Lcd_Wr_Data(0x15);   
+	Drv_Lcd_Wr_Data(0x31);   
+	Drv_Lcd_Wr_Data(0x34);
+
+	Drv_Lcd_Wr_Cmd(0x21);
+	Drv_Lcd_Wr_Cmd(0x29);
+
+ }
 
 void Drv_Lcd_Clr(uint16_t color, lcd_isr_callback_t callback )
 {
@@ -125,6 +138,15 @@ void Drv_Lcd_Set_Position(uint16_t startX, uint16_t startY, uint16_t endX, uint1
 	Drv_Lcd_Wr_Data(endY&0xff);
 }
 
+void Drv_Lcd_Read_Id(void )
+{
+    uint8_t buf[4] = {0};
+    
+    Drv_Lcd_Wr_Cmd(0x04);
+
+    Drv_Lcd_Rd_Data(buf, 4);
+}
+
 void Drv_Lcd_Wr_Cmd(uint8_t reg )
 {
     LCD_CS_LOW();
@@ -143,6 +165,21 @@ void Drv_Lcd_Wr_Data(uint8_t dat )
 	Write_LBDATAL(dat);
 
 	LCD_CS_HIGH();
+}
+
+void Drv_Lcd_Rd_Data(uint8_t *buf, uint8_t length )
+{
+    uint8_t i;
+    
+    LCD_CS_LOW();
+	LCD_DC_HIGH();
+    
+    for(i=0;i<length;i++)
+    {
+        while(Read_LBCTL_BYF());
+        buf[i] = LCDB->LBDATAL;
+        while(Read_LBCTL_TPF());/* write LBDATAL */
+    }
 }
 
 void Drv_Lcd_Delay_US(uint32_t us )

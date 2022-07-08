@@ -1,2 +1,2 @@
----- LCD_DC_HIGH Matches (1 in 1 files) ----
-hal_lcd.h (Application\User) line 19 : #define LCD_DC_HIGH() PORT->PSETD = (1<<0)//PA02//PORT->PSETA = (1<<2)//PA02
+---- BACKLIGHT_OFF Matches (1 in 1 files) ----
+hal_lcd.h (Application\User) line 15 : #define BACKLIGHT_OFF() PORT->PCLRA =  (1<<4)//PA04 //PORT->P1 &= ~(1<<6)//P16

@@ -30,22 +30,11 @@ static uint16_t backcolor;
 
 void Hal_Lcd_Init(void )
 {
-    //LCD RS
-    PORT_Init(PORTD, PIN0, OUTPUT);
+    PORT_Init(PORTA, PIN2, OUTPUT);
     //LCD CS
     PORT_Init(PORTA, PIN10, OUTPUT);
-    //LCD BLK
-    PORT_Init(PORTA, PIN4, OUTPUT);
-    //LCD RES
-    PORT_Init(PORTA, PIN2, OUTPUT);
-
-    /* Set LCDB pin */
-	PORT->PC &= ~0xF3C0;//PC6-9 PC12-15
-	PORT->PC |= 0x0C00;//PC10-11
-	
-    PORT->PMCC &= ~(0x3FF<<6);//PC6-15 digital function
-    PORT->PMC &= ~0x0C00;//PC10-11 output mode
-	PORT->PMC |= 0xF3C0;//PC6-9 PC12-15 input mode
+	//LCD RS
+    PORT_Init(PORTD, PIN0, OUTPUT);
     
     Lcdb.mode = LCDB_MODE_TYPE_8080;	/* 8080 Mode */
 	Lcdb.clock_div = LCDB_CLOCK_DIV_1;	/* 1 divider */

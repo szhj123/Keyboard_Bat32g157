@@ -3,17 +3,13 @@
 
 #include "hal_bat32g157.h"
 
-#define LCD_W 320u
-#define LCD_H 240u
+#define LCD_W 240u
+#define LCD_H 320u
 
 #define PIC_MAX_SIZE        (163840u)
 
 
 typedef void (*lcd_isr_callback_t)(void );
-
-                                
-#define BACKLIGHT_ON() PORT->PSETA = (1<<4)//PA04 //PORT->P1 |= (1<<6)//P16
-#define BACKLIGHT_OFF() PORT->PCLRA =  (1<<4)//PA04 //PORT->P1 &= ~(1<<6)//P16
 
 #define LCD_CS_HIGH() PORT->PSETA = (1<<10)//PA00//PORT->PSETA = (1<<0)//PA00
 #define LCD_CS_LOW() PORT->PCLRA =  (1<<10)//PA00//PORT->PCLRA =  (1<<0)//PA00
@@ -23,7 +19,6 @@ typedef void (*lcd_isr_callback_t)(void );
 #define LCD_DC_LOW() PORT->PCLRD =  (1<<0)//PA02//PORT->PCLRA =  (1<<2)//PA02
 #define LCD_WR_HIGH() PORT->PSETC = (1<<11)//PC11
 #define LCD_WR_LOW() PORT->PCLRC =  (1<<11)//PC11
-
 
 #define Read_LBCTL_BYF() (LCDB->LBCTL&LCDB_LBCTL_BYF_Msk)
 #define Read_LBCTL_TPF() (LCDB->LBCTL&LCDB_LBCTL_TPF_Msk)
