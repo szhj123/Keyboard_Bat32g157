@@ -20,14 +20,6 @@ static void Drv_Timer_IRQHandler(void );
 /* Private variables ------------------------------------*/
 timer_ctrl_block_t timerList[TIMER_MAX_NUM];
 
-static void test(void *arg )
-{
-    if((uint8_t)arg == 0xff)
-    {
-        PORT_ToggleBit(PORTD, PIN10);
-    }
-}
-
 void Drv_Timer_Init(void )
 {
     uint8_t i;
@@ -44,10 +36,6 @@ void Drv_Timer_Init(void )
     Hal_Timer_Init();
 
     Hal_Timer_Regist_IRQHandler_Callback(Drv_Timer_IRQHandler);
-
-    PORT_Init(PORTD, PIN10, OUTPUT);
-
-    Drv_Timer_Reigst_Period(test, 0, 200, (void *)255);
 }
 
 uint8_t Drv_Timer_Regist(void (*handler)(void *arg), uint16_t ticks, uint16_t period, void *arg )

@@ -12,7 +12,9 @@
 /* Includes ---------------------------------------------*/
 #include "drv_task.h"
 #include "drv_timer.h"
+#include "drv_spi_flash.h"
 
+#include "app_lcd.h"
 #include "app_usb_keyboard.h"
 /* Private typedef --------------------------------------*/
 /* Private define ---------------------------------------*/
@@ -28,11 +30,17 @@ int main(void )
 
     Drv_Timer_Init();
 
+    Drv_Spi_Flash_Init();
+
+    App_Lcd_Init();
+
     App_Usb_Keyboard_Init();
 
     while(1)
     {
         Drv_Task_Scheduler();
+
+        App_Lcd_Handler();
     }
 }
 

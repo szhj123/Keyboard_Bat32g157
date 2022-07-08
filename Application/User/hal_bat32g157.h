@@ -15,6 +15,7 @@
 #include "gpio.h"
 #include "tim4.h"
 #include "spi.h"
+#include "dma.h"
 
 typedef void (*IRQHandler_callback_t)(void );
 

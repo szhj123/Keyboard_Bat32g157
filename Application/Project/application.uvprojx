@@ -300,8 +300,8 @@
               </OCR_RVCT8>
               <OCR_RVCT9>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
-                <Size>0x8000</Size>
+                <StartAddress>0x200002c0</StartAddress>
+                <Size>0x7d40</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -336,7 +336,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls></MiscControls>
+              <MiscControls>--diag_suppress=550</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>..\..\CMSIS\Include;..\..\Device\Include;..\..\Driver\inc;..\User;..\..\Usb_Driver\usb_driver\inc;..\..\Usb_Driver\usb_phid_apl\inc</IncludePath>
@@ -413,6 +413,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\Driver\src\gpio.c</FilePath>
             </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Driver\src\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Driver\src\dma.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -448,6 +458,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\usb_keyboard_descriptor.c</FilePath>
             </File>
+            <File>
+              <FileName>app_lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\app_lcd.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -462,6 +477,16 @@
               <FileName>drv_timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\drv_timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_spi_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\drv_spi_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\drv_lcd.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -482,6 +507,16 @@
               <FileName>hal_timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\hal_timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_spi_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\hal_spi_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\hal_lcd.c</FilePath>
             </File>
           </Files>
         </Group>

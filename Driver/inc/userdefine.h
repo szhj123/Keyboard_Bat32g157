@@ -1134,6 +1134,7 @@ typedef enum
 //#define SPIHS1_SLAVE_PORT
 #define SPIHS1_MASTER_PORT
 
+
 #ifdef SPIHS0_SLAVE_PORT
 #define NSS0_PORT_SETTING() do{ \
         PORT->PMC  |=  (1 << 6);    /* PC06 is used as NSS0 input */ \
