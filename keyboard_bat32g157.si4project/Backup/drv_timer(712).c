@@ -64,7 +64,7 @@ uint8_t Drv_Timer_Regist_Oneshot(void (*handler)(void *arg), uint16_t ticks, voi
     return Drv_Timer_Regist(handler, ticks, 0, arg);
 }
 
-uint8_t Drv_Timer_Regist_Period(void (*handler)(void *arg), uint16_t ticks, uint16_t period, void *arg )
+uint8_t Drv_Timer_Reigst_Period(void (*handler)(void *arg), uint16_t ticks, uint16_t period, void *arg )
 {
     return Drv_Timer_Regist(handler, ticks, period, arg);
 }

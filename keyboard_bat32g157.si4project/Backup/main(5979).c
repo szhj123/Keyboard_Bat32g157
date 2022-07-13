@@ -15,7 +15,6 @@
 #include "drv_spi_flash.h"
 
 #include "app_lcd.h"
-#include "app_key.h"
 #include "app_usb_keyboard.h"
 /* Private typedef --------------------------------------*/
 /* Private define ---------------------------------------*/
@@ -34,8 +33,6 @@ int main(void )
     Drv_Spi_Flash_Init();
 
     App_Lcd_Init();
-
-    App_Key_Init();
 
     App_Usb_Keyboard_Init();
 

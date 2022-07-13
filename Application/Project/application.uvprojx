@@ -134,10 +134,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4096</DriverSelection>
+            <DriverSelection>4099</DriverSelection>
           </Flash1>
-          <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <bUseTDR>0</bUseTDR>
+          <Flash2>BIN\CMSIS_AGDI.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
@@ -463,6 +463,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\app_lcd.c</FilePath>
             </File>
+            <File>
+              <FileName>app_key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\app_key.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -487,6 +492,11 @@
               <FileName>drv_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\drv_lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\drv_key.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -517,6 +527,11 @@
               <FileName>hal_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\hal_lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\hal_key.c</FilePath>
             </File>
           </Files>
         </Group>
