@@ -129,7 +129,7 @@ const uint8_t user_opt_data[8] __attribute__((used)) __attribute__((section(".AR
 //              <i> Please setting the item for interrupt & reset mode
 //   </e>
 // </h>
-    0xFF,
+    0x00,
 
 /**
  * @brief HOCO Control BYTE (FRQSEL)
