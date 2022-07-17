@@ -37,13 +37,13 @@ int main(void )
 
     App_Key_Init();
 
-    //App_Usb_Keyboard_Init();
+    App_Usb_Keyboard_Init();
 
     while(1)
     {
         Drv_Task_Scheduler();
 
-        //App_Lcd_Handler();
+        App_Lcd_Handler();
     }
 }
 

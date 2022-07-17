@@ -30,7 +30,7 @@ usb_cfg_t  cfg;
 uint8_t    *p_idle_value;
 usb_info_t info;
 usb_err_t  ret_code = USB_SUCCESS;
-
+uint8_t    usbEnumEndFlag;
 
 static  uint8_t         gs_data[]    = {0, 0, 0, 0, 0, 0, 0, 0}; /* HID data */
 static  uint8_t         gs_status    = NO_WRITING;           /* HID device is the HID data transfer status or not */
@@ -101,6 +101,8 @@ static void App_Usb_Keyboard_Handler(void *arg )
                 {
                     /* Get the NumLock data (NumLock data is not used) */
                     USB_Read(&ctrl, (uint8_t *)&gs_numlock, 2);
+
+                    usbEnumEndFlag = 1;
                 }
 
                 if (USB_SET_IDLE == (ctrl.setup.type & USB_BREQUEST))
@@ -208,6 +210,16 @@ static void App_Usb_Keyboard_Handler(void *arg )
     }
 }
 
-
+uint8_t App_Usb_Get_Config_State(void )
+{
+    if(usbEnumEndFlag)
+    {
+        return USB_CONFIG_SUCCESS;
+    }
+    else
+    {
+        return USB_CONFIG_ERROR;
+    }
+}
 
 
