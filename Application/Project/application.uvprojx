@@ -508,6 +508,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\drv_key.c</FilePath>
             </File>
+            <File>
+              <FileName>drv_rgb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\drv_rgb.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -542,6 +547,11 @@
               <FileName>hal_key.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\hal_key.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_rgb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\hal_rgb.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -54,9 +54,9 @@ void Drv_Key_Init(void );
 void Drv_Key_Scan(void );
 void Drv_Key_Get_Val(key_t *pKey );
 void Drv_Key_Col_Set_All_Pin_High(void );
-void Drv_Key_Col_Set_All_Pin_Low(void );
 void Drv_Key_Col_Set_Pin_Low(uint8_t colNum );
-void Drv_Key_Col_Set_Pin_High(uint8_t colNum );
+void Drv_Key_Col_Set_Single_Pin_High(uint8_t colNum );
+void Drv_Key_Col_Set_Single_Pin_Low(uint8_t colNum );
 
 #endif 
 

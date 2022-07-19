@@ -171,23 +171,20 @@
      }
  }
 
-  void Drv_Key_Col_Set_All_Pin_Low(void )
- {
-     uint8_t i;
- 
-     for(i=0;i<sizeof(colBuf)/sizeof(keyPin_typedef);i++)
-     {
-         Hal_Key_Set_Pin_Low(colBuf[i].port, colBuf[i].pin);
-     }
- }
-
- void Drv_Key_Col_Set_Pin_High(uint8_t colNum )
+ void Drv_Key_Col_Set_Single_Pin_High(uint8_t colNum )
  {
     Hal_Key_Set_Pin_High(colBuf[colNum].port, colBuf[colNum].pin);
  }
+
+  void Drv_Key_Col_Set_Single_Pin_Low(uint8_t colNum )
+ {
+    Hal_Key_Set_Pin_Low(colBuf[colNum].port, colBuf[colNum].pin);
+ }
  
  void Drv_Key_Col_Set_Pin_Low(uint8_t colNum )
- { 
+ {
+     Drv_Key_Col_Set_All_Pin_High();
+ 
      Hal_Key_Set_Pin_Low(colBuf[colNum].port, colBuf[colNum].pin);
  }
  
@@ -208,8 +205,6 @@
      for(i=0;i<sizeof(colBuf)/sizeof(keyPin_typedef);i++)
      {
          Drv_key_Row_Set_All_Pin_High();
-
-         Drv_Key_Col_Set_All_Pin_High();
              
          Drv_Key_Col_Set_Pin_Low(i);
  

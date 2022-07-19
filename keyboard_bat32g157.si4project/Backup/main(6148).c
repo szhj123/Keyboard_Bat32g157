@@ -37,9 +37,9 @@ int main(void )
 
     App_Lcd_Init();
 
-    //App_Key_Init();
+    App_Key_Init();
 
-    Drv_Rgb_Init();
+    //Drv_Rgb_Init();
 
     App_Usb_Keyboard_Init();
 

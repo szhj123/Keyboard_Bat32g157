@@ -19,7 +19,6 @@
 /* Private macro ----------------------------------------*/
 /* Private function -------------------------------------*/
 void IRQ18_Handler(void) __attribute__((alias("tm40_channel0_interrupt")));
-void IRQ27_Handler(void) __attribute__((alias("tm81_channel10_14_interrupt")));
 void IRQ12_Handler(void) __attribute__((alias("spi1_interrupt")));
 void IRQ15_Handler(void) __attribute__((alias("lcdb_interrupt")));
 /* Private variables ------------------------------------*/
@@ -34,27 +33,6 @@ void tm40_channel0_interrupt(void )
     INTC_ClearPendingIRQ(TM00_IRQn);    /* clear INTTM00 interrupt flag */
 
     Hal_Timer_IRQHandler();
-}
-
-void tm81_channel10_14_interrupt(void )
-{
-    volatile uint8_t ifl, ifh;
-    ifl = INTC_GetPendingIRQ(TM10_IRQn);
-    ifh = INTC_GetPendingIRQ(TM14_IRQn);
-		
-	if(ifl)
-	{
-        INTC_ClearPendingIRQ(TM10_IRQn);    /* clear INTTM10 interrupt flag */
-
-	}
-    
-	if(ifh)
-	{
-	    INTC_ClearPendingIRQ(TM14_IRQn);    /* clear INTTM14 interrupt flag */
-  
-	}
-    /* Start user code. Do not edit comment generated here */
-    /* End user code. Do not edit comment generated here */
 }
 
 void spi1_interrupt(void)

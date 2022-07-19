@@ -1,3 +1,3 @@
----- USB_STS_SUSPEND Matches (2 in 2 files) ----
-App_Usb_Keyboard_Handler in app_usb_keyboard.c (Application\User) :         case USB_STS_SUSPEND:
-usb_status in usb_basic_mini_if.h (Usb_Driver\usb_driver\inc) :     USB_STS_SUSPEND,
+---- Drv_Key_Col_Set_Single_Pin_Low Matches (2 in 2 files) ----
+drv_key.c (Application\User) line 179 :   void Drv_Key_Col_Set_Single_Pin_Low(uint8_t colNum )
+drv_key.h (Application\User) line 59 : void Drv_Key_Col_Set_Single_Pin_Low(uint8_t colNum );
