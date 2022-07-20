@@ -61,7 +61,7 @@ void Hal_Rgb_Gclk_Init(void )
     /* Channel 0 is used as interval timer */
     TM81->TMR10 = _0000_TM8_CLOCK_SELECT_CKM0 | _0000_TM8_CLOCK_MODE_CKS | _0000_TM8_TRIGGER_SOFTWARE |
                   _0000_TM8_MODE_INTERVAL_TIMER | _0000_TM8_START_INT_UNUSED;
-    TM81->TDR10 = SystemCoreClock/1000000 - 1;
+    TM81->TDR10 = 5 - 1;
     TM81->TO1  &= ~_0001_TM8_CH0_OUTPUT_VALUE_1;
     TM81->TOE1 |=  _0001_TM8_CH0_OUTPUT_ENABLE;
     
@@ -71,7 +71,7 @@ void Hal_Rgb_Gclk_Init(void )
     PORT->POMA &= ~(1 << 5);    /* PA05 is normal output mode */ \
     PORT->PMCA &= ~(1 << 5);    /* PA05 digital function */ \
         
-    INTC_EnableIRQ(TM10_IRQn);
+    //INTC_EnableIRQ(TM10_IRQn);
     /* Start specify channel */
     TM81->TS1 |= TM8_CHANNEL_0;
 }
