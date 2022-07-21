@@ -93,8 +93,6 @@ void Hal_Rgb_Send_With_Loop(uint16_t *buf, uint16_t length )
 {
     uint16_t i;
 
-    PORT_ClrBit(PORTA, PIN4);
-
     SPIHS0->SPIM0 |= _0080_SPI_START_TRG_ON; 
 
     for(i=0;i<length;i++)
