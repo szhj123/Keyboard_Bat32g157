@@ -29,11 +29,11 @@ int main(void )
 {
     Clk_Init();
     
-	Drv_Task_Init();
+	//Drv_Task_Init();
 
-    Drv_Timer_Init();
+    //Drv_Timer_Init();
 
-    Drv_Spi_Flash_Init();
+    //Drv_Spi_Flash_Init();
 
     //App_Lcd_Init();
 

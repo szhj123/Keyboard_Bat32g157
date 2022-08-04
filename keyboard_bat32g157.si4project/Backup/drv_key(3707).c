@@ -183,21 +183,11 @@
 
  void Drv_Key_Col_Set_Pin_High(uint8_t colNum )
  {
-    if(colNum >= KEY_COL_MAX_NUM)
-    {
-        return ;
-    }
-        
     Hal_Key_Set_Pin_High(colBuf[colNum].port, colBuf[colNum].pin);
  }
  
  void Drv_Key_Col_Set_Pin_Low(uint8_t colNum )
  { 
-     if(colNum >= KEY_COL_MAX_NUM)
-     {
-         return ;
-     }
-     
      Hal_Key_Set_Pin_Low(colBuf[colNum].port, colBuf[colNum].pin);
  }
  

@@ -4,8 +4,6 @@
 #include "hal_key.h"
 
 #define KEY_MAX_NUM                0x08
-#define KEY_ROW_MAX_NUM            6
-#define KEY_COL_MAX_NUM            21
 
 typedef enum
 {
